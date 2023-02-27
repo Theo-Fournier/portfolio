@@ -1,20 +1,20 @@
 import Image from 'next/image'
 import profilePic from '../../public/profilePic.png'
-import Header from './components/Header'
+import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 
 export default function Home() {
   return (
     <>
-      <Header />
-      <div className="bg-white pt-52 min-h-screen">
+      <Navbar />
+      <div className="bg-white md:pt-52 xs:pt-28 min-h-screen">
         <div className="grid md:grid-cols-2 sm:grid-cols-1">
-          <div className="space-y-4 mx-32">
+          <div className="space-y-4 lg:mx-44 xs:mx-20">
             <h1 className="text-black text-5xl font-bold">
               Lorem ipsum dolor,
             </h1>
             <h1 className="text-black text-xl">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero quas praesentium ducimus rerum. Impedit rerum dolorum sunt amet, totam repellendus atque minima laborum enim exercitationem aperiam consectetur non. Hic, dicta.
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero quas praesentium ducimus rerum. Impedit rerum dolorum sunt amet.
             </h1>
           </div>
             <Image 
@@ -22,7 +22,7 @@ export default function Home() {
               alt="Profil"
               width={200}
               height={200}
-              className="justify-self-center"
+              className="justify-self-center xs:py-16 md:p-0"
             />
         </div>
       </div>

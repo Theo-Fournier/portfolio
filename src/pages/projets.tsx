@@ -1,10 +1,10 @@
 import Footer from './components/Footer'
-import Header from './components/Header'
+import Navbar from './components/Navbar'
 
 export default function Projet() {
   return (
     <>
-      <Header />
+      <Navbar />
       <div className="bg-white min-h-screen"></div>
       <Footer />
     </>
