@@ -1,68 +1,9 @@
 import { useTheme } from "next-themes";
-import Image from "next/image";
-import githubDark from "../../../public/githubDark.png";
-import githubLight from "../../../public/githubLight.png";
-import linkedinDark from "../../../public/linkedinDark.png";
-import linkedinLight from "../../../public/linkedinLight.png";
 
 const Footer = ({}) => {
   const { systemTheme, theme, setTheme } = useTheme();
   const currentTheme = theme === "system" ? systemTheme : theme;
-  const github = () => {
-    if (currentTheme === "dark") {
-      return (
-        <button className="dark:text-white mx-5 rounded-full hover:bg-gray-200 duration-300 p-2 dark:hover:bg-gray-600">
-          <Image
-            src={githubLight}
-            alt="github"
-            width={25}
-            height={25}
-            className=""
-          />
-        </button>
-      );
-    } else {
-      return (
-        <button className="dark:text-white mx-5 rounded-full hover:bg-gray-200 duration-300 p-2 dark:hover:bg-gray-600">
-          <Image
-            src={githubDark}
-            alt="github"
-            width={25}
-            height={25}
-            className=""
-          />
-        </button>
-      );
-    }
-  };
-  const linkedin = () => {
-    if (currentTheme === "dark") {
-      return (
-        <button className="mx-5 rounded-full hover:bg-gray-200 duration-300 p-2 dark:hover:bg-gray-600">
-          <Image
-            src={linkedinLight}
-            alt="linkedin"
-            width={25}
-            height={25}
-            className=""
-          />
-        </button>
-      );
-    } else {
-      return (
-        <button className="mx-5 rounded-full hover:bg-gray-200 duration-300 p-2 dark:hover:bg-gray-600">
-          <Image
-            src={linkedinDark}
-            alt="linkedin"
-            width={25}
-            height={25}
-            className=""
-          />
-        </button>
-      );
-    }
-  };
-  const renderThemeChanger = () => {
+  const ThemeChanger = () => {
     if (currentTheme === "dark") {
       return (
         <button
@@ -107,11 +48,7 @@ const Footer = ({}) => {
   };
   return (
     <footer className="bg-white dark:bg-gray-800">
-      <div className="flex justify-center py-5">
-        {github()}
-        {linkedin()}
-        {renderThemeChanger()}
-      </div>
+      <div className="flex justify-center py-5">{ThemeChanger()}</div>
     </footer>
   );
 };
