@@ -4,7 +4,11 @@ module.exports = {
     './src/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
-    extend: {},
+    extend: {
+      dropShadow: {
+        'md': '0 0 3px rgba(0, 0, 0, 0.25)',
+      }
+    },
     screens: {
       'xs': '320px',
       'sm': '640px',
@@ -14,5 +18,6 @@ module.exports = {
       '2xl': '1536px',
     },
   },
+  darkMode: "class", 
   plugins: [],
 }

@@ -1,27 +1,33 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
-import Image from "next/image";
-import TF from "../../../public/TF.png";
 
 const Navbar = ({}) => {
   const [isNavOpen, setIsNavOpen] = useState(false);
   const router = useRouter();
 
   return (
-    <header className={isNavOpen ? "md:bg-white bg-gray-800" : "bg-white"}>
+    <header
+      className={
+        isNavOpen
+          ? "bg-gray-800 md:bg-white md:dark:bg-gray-800 pt-6 drop-shadow-md dark:drop-shadow-xl"
+          : "bg-white dark:bg-gray-800 pt-6 drop-shadow-md dark:drop-shadow-xl"
+      }
+    >
       {/* Mobile */}
       <div
         className={
-          isNavOpen ? "md:hidden sticky" : "md:hidden sticky text-black"
+          isNavOpen
+            ? "flex justify-between md:hidden"
+            : "md:hidden text-black bg-white dark:bg-gray-800"
         }
       >
         <button
           onClick={() => setIsNavOpen((prev) => !prev)}
           className={
             isNavOpen
-              ? "rounded-full p-2 m-2 hover:bg-gray-600"
-              : "rounded-full p-2 m-2 hover:bg-gray-200"
+              ? "rounded-full p-2 ml-2 hover:bg-gray-600 duration-300"
+              : "rounded-full p-2 ml-2 hover:bg-gray-200 dark:text-white dark:hover:bg-gray-600 duration-300 mb-6"
           }
         >
           <svg
@@ -39,11 +45,29 @@ const Navbar = ({}) => {
             />
           </svg>
         </button>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          strokeWidth={1.5}
+          stroke="currentColor"
+          className={isNavOpen ? "w-6 mr-6 text-purple-600" : "hidden"}
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"
+          />
+        </svg>
       </div>
-      <div className={isNavOpen ? "bg-gray-800 text-white" : "hidden"}>
+      <div
+        className={
+          isNavOpen ? "bg-gray-800 text-white md:hidden mt-4" : "hidden"
+        }
+      >
         <Link href="/">
           <div className={router.pathname == "/" ? "bg-gray-700" : ""}>
-            <div className="flex py-4 px-4 hover:bg-gray-600">
+            <div className="flex py-4 px-4 hover:bg-gray-600 duration-300">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -64,7 +88,7 @@ const Navbar = ({}) => {
         </Link>
         <Link href="/projets">
           <div className={router.pathname == "/projets" ? "bg-gray-700" : ""}>
-            <div className="flex py-4 px-4 hover:bg-gray-600">
+            <div className="flex py-4 px-4 hover:bg-gray-600 duration-300">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -85,7 +109,7 @@ const Navbar = ({}) => {
         </Link>
         <Link href="/skills">
           <div className={router.pathname == "/skills" ? "bg-gray-700" : ""}>
-            <div className="flex py-4 px-4 hover:bg-gray-600">
+            <div className="flex py-4 px-4 hover:bg-gray-600 duration-300">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -106,7 +130,7 @@ const Navbar = ({}) => {
         </Link>
         <Link href="/contact">
           <div className={router.pathname == "/contact" ? "bg-gray-700" : ""}>
-            <div className="flex py-4 px-4 hover:bg-gray-600">
+            <div className="flex py-4 px-4 hover:bg-gray-600 duration-300">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -128,27 +152,64 @@ const Navbar = ({}) => {
       </div>
 
       {/* Desktop */}
-      <Image
-        src={TF}
-        alt="Logo"
-        width={120}
-        height={120}
-        className="hidden absolute md:block"
-      />
-      <div className="text-black hidden pt-4 mr-8 justify-end md:flex">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        strokeWidth={1.5}
+        stroke="currentColor"
+        className="text-purple-600 w-10 absolute ml-8 hidden md:block"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"
+        />
+      </svg>
+      <div className="dark:text-white text-black hidden mr-14 justify-end md:flex pb-6">
         <Link href="/">
-          <div className={router.pathname == "/" ? "p-2 mx-2" : "p-2 mx-2"}>
+          <div
+            className={
+              router.pathname == "/"
+                ? "text-white bg-gray-700 rounded p-2 mx-2"
+                : "p-2 mx-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded duration-300"
+            }
+          >
             Accueil
           </div>
         </Link>
         <Link href="/projets">
-          <div className="p-2 mx-2">Projets</div>
+          <div
+            className={
+              router.pathname == "/projets"
+                ? "text-white bg-gray-700 rounded p-2 mx-2"
+                : "p-2 mx-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded duration-300"
+            }
+          >
+            Projets
+          </div>
         </Link>
         <Link href="/skills">
-          <div className="p-2 mx-2">Compétences</div>
+          <div
+            className={
+              router.pathname == "/skills"
+                ? "text-white bg-gray-700 rounded p-2 mx-2"
+                : "p-2 mx-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded duration-300"
+            }
+          >
+            Compétences
+          </div>
         </Link>
         <Link href="/contact">
-          <div className="p-2 mx-2">Contact</div>
+          <div
+            className={
+              router.pathname == "/contact"
+                ? "text-white bg-gray-700 rounded p-2 mx-2"
+                : "p-2 mx-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded duration-300"
+            }
+          >
+            Contact
+          </div>
         </Link>
       </div>
     </header>
