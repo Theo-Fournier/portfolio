@@ -10,24 +10,24 @@ const Navbar = ({}) => {
     <header
       className={
         isNavOpen
-          ? "bg-gray-800 md:bg-white md:dark:bg-gray-800 pt-6 drop-shadow-md dark:drop-shadow-xl"
-          : "bg-white dark:bg-gray-800 pt-6 drop-shadow-md dark:drop-shadow-xl"
+          ? "bg-white md:bg-white pt-6 dark:bg-gray-800 md:dark:bg-gray-800"
+          : "bg-white pt-6 dark:bg-gray-800"
       }
     >
       {/* Mobile */}
       <div
         className={
           isNavOpen
-            ? "flex justify-between md:hidden"
-            : "md:hidden text-black bg-white dark:bg-gray-800"
+            ? "flex justify-between mx-4 md:hidden"
+            : "md:hidden text-black mx-4 bg-white dark:bg-gray-800"
         }
       >
         <button
           onClick={() => setIsNavOpen((prev) => !prev)}
           className={
             isNavOpen
-              ? "rounded-full p-2 ml-2 hover:bg-gray-600 duration-300"
-              : "rounded-full p-2 ml-2 hover:bg-gray-200 dark:text-white dark:hover:bg-gray-600 duration-300 mb-6"
+              ? "rounded-full p-2 hover:bg-emerald-300 duration-300 text-black dark:text-white dark:hover:bg-gray-600"
+              : "rounded-full p-2 hover:bg-emerald-300 duration-300 mb-6 dark:text-white dark:hover:bg-gray-600"
           }
         >
           <svg
@@ -51,7 +51,7 @@ const Navbar = ({}) => {
           viewBox="0 0 24 24"
           strokeWidth={1.5}
           stroke="currentColor"
-          className={isNavOpen ? "w-6 mr-6 text-purple-600" : "hidden"}
+          className={isNavOpen ? "w-6 mr-6 text-emerald-600" : "hidden"}
         >
           <path
             strokeLinecap="round"
@@ -62,12 +62,16 @@ const Navbar = ({}) => {
       </div>
       <div
         className={
-          isNavOpen ? "bg-gray-800 text-white md:hidden mt-4" : "hidden"
+          isNavOpen ? "bg-white md:hidden mt-4 dark:bg-gray-800" : "hidden"
         }
       >
         <Link href="/">
-          <div className={router.pathname == "/" ? "bg-gray-700" : ""}>
-            <div className="flex py-4 px-4 hover:bg-gray-600 duration-300">
+          <div
+            className={
+              router.pathname == "/" ? "bg-emerald-300 dark:bg-gray-700" : ""
+            }
+          >
+            <div className="text-black flex py-4 px-4 hover:bg-emerald-200 duration-300 dark:text-white dark:hover:bg-gray-600">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -87,8 +91,14 @@ const Navbar = ({}) => {
           </div>
         </Link>
         <Link href="/projets">
-          <div className={router.pathname == "/projets" ? "bg-gray-700" : ""}>
-            <div className="flex py-4 px-4 hover:bg-gray-600 duration-300">
+          <div
+            className={
+              router.pathname == "/projets"
+                ? "bg-emerald-300 dark:bg-gray-700"
+                : ""
+            }
+          >
+            <div className="text-black flex py-4 px-4 hover:bg-emerald-200 duration-300 dark:text-white dark:hover:bg-gray-600">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -108,8 +118,14 @@ const Navbar = ({}) => {
           </div>
         </Link>
         <Link href="/skills">
-          <div className={router.pathname == "/skills" ? "bg-gray-700" : ""}>
-            <div className="flex py-4 px-4 hover:bg-gray-600 duration-300">
+          <div
+            className={
+              router.pathname == "/skills"
+                ? "bg-emerald-300 dark:bg-gray-700"
+                : ""
+            }
+          >
+            <div className="text-black flex py-4 px-4 hover:bg-emerald-200 duration-300 dark:text-white dark:hover:bg-gray-600">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -129,8 +145,14 @@ const Navbar = ({}) => {
           </div>
         </Link>
         <Link href="/contact">
-          <div className={router.pathname == "/contact" ? "bg-gray-700" : ""}>
-            <div className="flex py-4 px-4 hover:bg-gray-600 duration-300">
+          <div
+            className={
+              router.pathname == "/contact"
+                ? "bg-emerald-300 dark:bg-gray-700"
+                : ""
+            }
+          >
+            <div className="text-black flex py-4 px-4 hover:bg-emerald-200 duration-300 dark:text-white dark:hover:bg-gray-600">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -158,7 +180,7 @@ const Navbar = ({}) => {
         viewBox="0 0 24 24"
         strokeWidth={1.5}
         stroke="currentColor"
-        className="text-purple-600 w-10 absolute ml-8 hidden md:block"
+        className="text-emerald-600 w-10 absolute ml-8 hidden md:block"
       >
         <path
           strokeLinecap="round"
@@ -166,13 +188,13 @@ const Navbar = ({}) => {
           d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"
         />
       </svg>
-      <div className="dark:text-white text-black hidden mr-14 justify-end md:flex pb-6">
+      <div className="text-black hidden mr-14 justify-end md:flex pb-6 dark:text-white">
         <Link href="/">
           <div
             className={
               router.pathname == "/"
-                ? "text-white bg-gray-700 rounded p-2 mx-2"
-                : "p-2 mx-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded duration-300"
+                ? "text-white bg-emerald-700 rounded p-2 mx-2"
+                : "p-2 mx-2 hover:bg-emerald-100 rounded duration-300 dark:hover:bg-gray-700"
             }
           >
             Accueil
@@ -182,8 +204,8 @@ const Navbar = ({}) => {
           <div
             className={
               router.pathname == "/projets"
-                ? "text-white bg-gray-700 rounded p-2 mx-2"
-                : "p-2 mx-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded duration-300"
+                ? "text-white bg-emerald-700 rounded p-2 mx-2"
+                : "p-2 mx-2 hover:bg-emerald-100 rounded duration-300 dark:hover:bg-gray-700"
             }
           >
             Projets
@@ -193,8 +215,8 @@ const Navbar = ({}) => {
           <div
             className={
               router.pathname == "/skills"
-                ? "text-white bg-gray-700 rounded p-2 mx-2"
-                : "p-2 mx-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded duration-300"
+                ? "text-white bg-emerald-700 rounded p-2 mx-2"
+                : "p-2 mx-2 hover:bg-emerald-100 rounded duration-300 dark:hover:bg-gray-700"
             }
           >
             Compétences
@@ -204,8 +226,8 @@ const Navbar = ({}) => {
           <div
             className={
               router.pathname == "/contact"
-                ? "text-white bg-gray-700 rounded p-2 mx-2"
-                : "p-2 mx-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded duration-300"
+                ? "text-white bg-emerald-700 rounded p-2 mx-2"
+                : "p-2 mx-2 hover:bg-emerald-100 rounded duration-300 dark:hover:bg-gray-700"
             }
           >
             Contact
